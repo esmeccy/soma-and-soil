@@ -3,88 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soma & Soil</title>
-     <link rel="stylesheet" href="/style/style.css">
+    <title>Soma & Soil - Sensory Ritual App</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!--nav bar-->
     <header class="site-header">
-        <img src="images/tenet-logo.png" alt="soma and soil logo" class="logo" height="40">
-        <nav class="site-header-nav">
+        <div class="site-header_logo">
+            <h1>Soma & Soil App</h1>
+            <a href="index.html"><img src="images/soma-and-soil-logo-vertical-olivegreen.png" alt="soma and soil logo"></a>
+        </div>
+
+        <nav class="site-header_nav">
             <ul>
-                 <li>
-                 <a href="index.html"> Home</a>
-                 </li>
-                 <li>
-                    <a href="#FAQ">FAQ</a>
-                </li>
-                <li>
-                    <a href="#Contact">Contact</a>
-                </li>
-                 <li>
-                    <a href="Blog.html">Blog</a>
-                </li>
+                 <li class="nav_active"><a href="index.html"> Home</a></li>
+                 <li><a href="#FAQ">FAQ</a></li>
+                <li><a href="#Contact">Contact</a></li>
+                <li><a href="Blog.html">Blog</a></li>
             </ul>
         </nav>
+
+        <div class="site-header-nav_cta">
+             <a class="cta-button" href="https://www.apple.com/ca/app-store/">Free Download</a>
+        </div>
     </header>
 
     <main>
         <!---hero-section-->
-        <section class="hero"  aria-label="intro section of the movie">
-            <H1>Turn Scent into a Ritual</H1>
-            <p>A sensory wellness app that turns your candle ritual into a moment of reflection, balance, and calm.</p>
-            <a href="https://www.apple.com/ca/app-store/">Try it for free</a>
+        <section class="hero"  aria-label="Hero section of Soma and Soil app">
+            <div class="hero-content">
+            <h2>Turn Scent into a Ritual</h2>
+            <p>A sensory wellness app that turns your candle ritual 
+                into a moment of reflection, balance, and calm.</p>
+                    <a class="hero-button" href="https://www.apple.com/ca/app-store/">Try it for free</a>
+            </div>
         </section>
 
         <!---about-->
-        <section class="" aria-label="">
-            <H2>About Soma & Soil</H2>
-            <p>Soma & Soil app helps you slow down, reconnect with your senses, and bring deeper meaning to your candle experience. Inspired by the chinese ancient philosophy of Wuxing, it helps you reconnect with your emotions through elemental energy, intentional reflection, and simple guided rituals. Whether you’re starting your day, winding down, or simply creating a quiet moment, the app is your digital companion for restoring balance.</p>
+        <section class="about" aria-label="Introduction of Soma and Soil app">
+            <div class="about-title">
+            <h2>About Soma & Soil</h2>
+            </div>
+            <div class="about-content">
+            <p>We helps you slow down, reconnect with your senses, and bring deeper meaning to your candle experience. Whether you’re starting your day, winding down, or simply creating a quiet moment, Soma & Soil helps reconnecting with your emotions.</p>
+              <a href="candles">Matching ritual with our candles</a>
+            </div>
         </section>
 
         <!--features-->
-        <section class="" aria-label="">
-            <H2>Features</H2>
+        <section class="feature" aria-label="Product Features">
+            <h2 class="feature_title">Build for restoring your inner mind</h2>
+            <div class="feature_list">
+            <div class="feature_item">
+                <h3>01</h3>
+                <h4>Scan & Unclock</h4>
+                <p>Scan Soma & Soil candle to unlock the matching ritual align with its scent and energy.</p>
+            </div>
 
-            <div>
-                <h3>Scan Your Candle</h3>
-                <p>Scan your Soma & Soil candle to unlock its elemental meaning and access a matching ritual designed to align with its scent and energy.</p>
+            <div class="feature_item">
+                <h3>03</h3>
+                <h4>Sensory Ritual</h4>
+                <p>Light the candle and follow our calming breathwork and soundscapes to restore presence and balance.</p>
             </div>
             
-            <div>
-                <h3>Mood Check-Ins</h3>
-                <p>Gently pause and reflect with daily check-ins. Track your emotional rhythm and let your mood guide you toward the element and ritual you need most.</p>   
+            <div class="feature_item">
+                <h3>02</h3>
+                <h4>Mood Check-Ins</h4>
+                <p>Pause and reflect daily. Track your emotional rhythm and let your mood guide your everyday ritual.</p>   
             </div>
 
-            <div>
-                <h3>Ritual Mode</h3>
-                <p>Select how you feel, and the app recommends a guided ritual inspired by the five elements of Wuxing. Light your candle and follow calming breathwork, reflections, and ambient soundscapes to restore presence and balance.</p>
             </div>
         </section>
 
         <!--FAQ-->
-        <section class="" id="FAQ" aria-label="">
-            <h2>Frequently Asked Questions</h2>
+        <section class="faq" id="FAQ" aria-label="">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            <ul class="faq-list">
+                <li class="faq-item">
+                    <button class="faq-question">
+                        Do I need to own a Soma & Soil candle to use the app?
+                        <span class="faq-toggle-icon">⌄</span>
+                    </button>
+                    <div class="faq-ans">
+                        No, but pairing the app with our candles enhances the full ritual experience.
+                    </div>
+                </li>
 
-            <div>
-            <h4>Do I need to own a Soma & Soil candle to use the app?</h4>
-            <p>No, but pairing the app with our candles enhances the full ritual experience.</p>
-            </div>
+                <li class="faq-item">
+                    <button class="faq-question">
+                        Are the rituals religious or spiritual?
+                        <span class="faq-toggle-icon">⌄</span>
+                    </button>
+                    <div class="faq-ans">
+                        They are nature-inspired and element-based, designed to support emotional balance and mindfulness.
+                    </div>
+                </li>
+                
+                <li class="faq-item">
+                    <button class="faq-question">
+                        Is this app for meditation?
+                        <span class="faq-toggle-icon">⌄</span>
+                    </button>
+                    <div class="faq-ans">
+                        It’s not traditional meditation. it’s a sensory experience rooted in breath, scent, and natural rhythm.
+                    </div>
+                </li>
 
-            <div>
-            <h4>Are the rituals religious or spiritual?</h4>
-            <p>They are nature-inspired and element-based, designed to support emotional balance and mindfulness.</p>
-            </div>
-
-            <div>
-                <h4>Is this app for meditation?</h4>
-                <p>It’s not traditional meditation. it’s a sensory experience rooted in breath, scent, and natural rhythm.</p>
-            </div>
-
-            <div>
-                <h4>Is it free?</h4>
-                <p>Yes, the app is free with optional premium rituals and content.</p>
-            </div>
+                <li class="faq-item">
+                    <button class="faq-question">
+                        Is it free?
+                        <span class="faq-toggle-icon">⌄</span>
+                    </button>
+                    <div class="faq-ans">
+                        Yes, the app is free with optional premium rituals and content.
+                    </div>
+                </li>
+            </ul>
         </section>
         
         <section class="" id="Contact" aria-label="">
@@ -97,6 +135,32 @@
     <footer class="site-footer" aria-label="site footer">
             <p> &copy; 2025 Esme Chan</p>
     </footer>
+
+    <!--JS-->
+    <!--Header scrolling-->
+    <script>
+    window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.site-header');
+        if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+        } else {
+        navbar.classList.remove('scrolled');
+        }
+    });
+    </script>
+
+    <!--FAQ hidden ans-->
+    <script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
 </body>
 
 </html>

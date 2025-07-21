@@ -1,0 +1,131 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/*Utliyty Classes */
+.button{
+    padding: .6em 1em;
+    border-radius: 0.25em;
+    background-color: #007bff;
+
+}
+
+.button--error{
+    background-color: red;
+}
+
+/* Header Styles */
+.site-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    padding: 0.5rem 1.5rem;
+}
+
+.site-header-nav ul{
+    display:flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.banner{
+    width:100vw;
+    height: 50vh;
+    min-height: 20rem;
+    background-image: url('../images/pizza-banner.png');
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-content{
+    text-align: center; 
+    background-color: beige;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.banner-content h2{
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin: 0.5em;
+    color: #333;
+}
+.banner-content p{
+    font-size: clamp(1.5rem, 1vw, 2rem);
+    margin: 1em 0;
+}
+
+/*menu*/
+.menu{
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 67.5rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.menu-item{
+    width: 45%;
+    padding: 2rem;
+    position: relative;
+    background-color: aliceblue;
+    border-radius: 1rem;
+    font-size: .85rem;
+    box-shadow: 0.125rem .25rem rgba(0,0,0,0.1);
+}
+
+.menu-item-price{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/*Gallery*/
+.gallery {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+        "title title"
+        "gallery sidebar";
+    gap:2rem;
+    width: 90vw;
+    margin: 2rem auto;
+}
+
+.gallery-layout-title{
+    grid-area: title;
+}
+
+.gallery-layout-main{
+    grid-area: gallery;
+}
+
+.gallery-layout-sidebar{
+    grid-area: sidebar;
+    background-color: #ffc800;
+    border-radius: 1em;
+    padding: 1.5em;
+}
+
+.gallery-grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1rem;
+}
+
+.gallery-item{
+    grid-column: auto/span 1;
+}
+
+.gallery-item-wide{
+    grid-column: auto/span 2;
+}

@@ -1,0 +1,419 @@
+/*Global Styles */
+body{
+    font-family: "circle", sans-serif;
+    line-height: 1.5;
+    color: #1e1e1e;
+    letter-spacing: 0.02rem;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  font-weight: 500;
+  font-family: "Rubik", sans-serif;
+  color: var(--green);
+}
+
+.site-footer {
+    color: #272727;
+    text-align: center;
+    margin-bottom: 3em;
+    letter-spacing: 0.03rem;
+}
+
+/*Utility Classes*/
+.button{
+    padding: 0.8rem 1.6rem;
+    background-color: rgb(255, 255, 255,0.4);
+    color: black;
+    border-radius: 2em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    letter-spacing: 0.03rem;
+}
+
+:root{
+    --green: rgb(0, 48, 32);
+    --olivegreen: rgb(0, 92, 75);
+}
+
+/* Header Styles */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0); /*transparent bg*/
+        transition: background-color 0.6s ease, box-shadow 0.6s ease, color 0.6s ease;
+}
+
+/*when user scrolls*/
+.site-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.8); /*transparent bg*/
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0,06);
+    
+}
+/*hiding h1*/
+.site-header_logo h1 {
+    position: absolute; /* Remove it from the document flow */
+    width: 1px; /* Minimize its size */
+    height: 1px; /* Minimize its size */
+    overflow: hidden; /* Prevent content overflow */
+    clip: rect(0, 0, 0, 0); /* Clip the element */
+    white-space: nowrap; /* Prevent wrapping */
+}
+/*logo*/
+.site-header_logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+}
+
+.site-header_logo img{
+    height: 1.1em; /* Adjust logo size */
+    display: block;
+
+}
+
+/*Links in the center*/
+.site-header_nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.site-header_nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    gap: 3rem; /* Space between navigation items */
+    margin: 0;
+    padding: 0;
+}
+
+.site-header_nav a {
+    text-decoration: none;
+    color: #4e4e4e; /* Text color */
+    font-weight:500;
+    transition: color 0.3s ease;
+}
+
+.site-header_nav a:hover {
+    color: var(--olivegreen); /* Hover effect */
+    font-weight: 550;
+}
+
+/*nav button -> download link*/
+.site-header-nav_cta {
+    flex:1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.cta-button {
+  padding: 0.8rem 1.6rem;
+  background-color: rgb(255, 255, 255,0.1);
+  border: 1px solid var(--olivegreen);
+  color: var(--green);
+  border-radius: 2em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+  letter-spacing: 0.03rem;
+}
+
+.cta-button:hover {
+  background: var(--olivegreen);
+  opacity: 0.9;
+  color: #eee;
+  font-weight: 550;
+  transition: 0.3s;
+}
+
+/*HOME*/
+
+/*hero section*/
+.hero{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: url('/images/scenic-view-forest-against-sky.jpg') center/cover no-repeat;
+    background-position: top center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0;
+    margin-top: 0;
+}
+
+/*text*/
+.hero-content {
+    position: absolute;
+    top: 54vh;
+    text-align: left;
+    max-width: 500px;
+    margin: auto 4rem;
+    transition: 0.3s;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  line-height: 3.2rem;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--green);
+  letter-spacing: 0.1rem；
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  font-family: "Rubik", sans-serif;
+  line-height: 1.6rem;
+  margin: 1rem 0 2.5rem;
+}
+
+/*Hero banner button -> download link*/
+.hero-button {
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  background-color: rgb(255, 255, 255,0.2);
+  border: 1px solid rgb(255, 255, 255,0.4);
+  box-shadow: 0 2px 2px rgba(139, 139, 139, 0.1);
+  color: var(--green);
+  border-radius: 2em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.hero-button:hover {
+  background-color: rgb(255, 255, 255,0.5);
+  font-weight: 650;
+  transition: 0.3s;
+}
+
+/*About Section*/
+.about{
+    margin: 8rem auto;
+    display: flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    text-align: left;
+}
+
+/*text*/
+.about-title{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+    margin-left: 8rem;
+}
+
+.about-title h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-family: "Rubik", sans-serif;
+    color: var(--green);
+}
+
+.about-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    margin-right: 8rem;
+}
+
+.about-content p{
+    font-size: 1.2rem;
+    color: #1e1e1e
+}
+
+/*About Link -> Candles Products Page*/
+.about-content a {
+    text-decoration: none;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--green);
+    border-bottom: 1.5px solid var(--olivegreen); /*underline style*/
+    width: max-content; /*keep the underline width as same as the content*/
+    padding-bottom: 2px; /*underline padding*/
+    transition: transform 0.3s; /*hover animation*/
+    transform: scale(1); /*hover animation-before*/
+
+    &::after { /*arrow sign*/
+        content: '→';
+        margin-left: 8px;
+        color: var(--olivegreen);
+        font-size: 1.2em;
+        transition: transform 0.3s; /*hover animation*/
+        transform: rotate(0deg) scale(1); /*hover animation-before*/
+        display: inline-block;
+    }
+
+    &:hover {
+        border-bottom-color: var(--green);
+        font-weight: 550;
+        transform: scale(1.02); /*hover animation-after*/
+    }
+
+    &:hover::after {
+        font-weight: 550;
+        transform: rotate(-45deg) scale(1.02); /*hover animation-after*/
+    }
+}
+
+/*Features*/
+.feature {
+    position: relative;
+    background: url('/images/calm-woman-meditating-nature.jpg')center/cover no-repeat;
+    height: 85vh;
+    width: 100%;
+}
+
+.feature_title {
+    position: absolute;
+    margin-left: 4rem;
+    margin-top: 31vh;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+/*feature-card*/
+.feature_list {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: flex-start;
+    text-align: left;
+    color: #fff;
+    margin: 0 4rem;
+    bottom: 4rem;
+    gap: 1.2rem;
+}
+
+.feature_item {
+    width: 16vw;
+    min-height: 32vh;
+    backdrop-filter: blur(6px);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0px 20px 0px 20px;
+    padding: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+/*card-text*/
+.feature_item h3 {
+    font-size: 2rem;
+    padding: .5rem;
+    font-weight: 600;
+}
+
+.feature_item h4 {
+    font-size: 1.4rem;
+    padding-bottom: 0.5rem;
+}
+
+.feature_item p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* FAQ Section */
+.faq {
+    margin: 8rem 4rem;
+}
+
+.faq-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.faq-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*style for faq section*/
+.faq-item {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1.2rem;
+}
+
+/*faq question*/
+.faq-question {
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.faq-question:hover {
+    color: var(--olivegreen);
+}
+
+/*toggle-icon style*/
+.faq-toggle-icon {
+    font-size: 2.5rem;
+    color: var(--green);
+    margin-left: auto; 
+    transition: transform 0.3s ease;
+    display: inline-block;
+    transform-origin: center center;
+    line-height:0;
+    vertical-align: middle;
+}
+
+.faq-toggle-icon:hover {
+    color: var(--olivegreen);
+
+}
+
+
+/*faq-hidden-asnwers*/
+.faq-ans {
+    font-size: 1.3rem;
+    color: #111111;
+    margin-top: 0.7rem;
+    line-height: 1.6;
+    display: none;
+}
+
+/*active style*/
+.faq-item.active .faq-question {
+    color: var(--olivegreen);
+}
+
+.faq-item.active .faq-toggle-icon {
+    transform: scaleY(-1);
+    color: var(--olivegreen);
+}
+
+.faq-item.active .faq-ans {
+    display: block;
+}
