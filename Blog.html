@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soma & Soil Blog</title>
+    <title>Blog - Soma & Soil</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!--nav-->
+    <!--nav bar-->
     <header class="site-header">
         <div class="site-header_logo">
             <h1>Soma & Soil App</h1>
-            <img src="images/tenet-logo.png" alt="soma and soil logo">
+            <a href="index.html"><img src="images/soma-and-soil-logo-vertical-olivegreen.png" alt="soma and soil logo"></a>
         </div>
 
         <nav class="site-header_nav">
@@ -28,32 +31,62 @@
              <a class="cta-button" href="https://www.apple.com/ca/app-store/">Free Download</a>
         </div>
     </header>
+    <main>
+        <!--title section-->
+        <article class="blog-post">
+            <section class="blog-post-layout-top">
+                <div class="date-box">
+                <p>JULY 19, 2025</p>
+                </div>
+                <h2 class="blog-post-title">A New Way to Connect with Your Senses</h2>
+            </section>
 
-    <!--title section-->
-    <section>
-        <p>JULY 19, 2025</p>
-        <h1>A New Way to Connect with Your Senses</h1>
-    </section>
+            <!--content-->
+            <section class="blog-post-layout-body">
+                <p>At Soma & Soil, we’ve always believed that balance begins with something simple: a flame, a scent, a breath. Our candles, inspired by the five elements of Wuxing, were designed to do more than smell beautiful — they were meant to be daily anchors, inviting you to return to stillness.</p>
 
-    <!--content-->
-    <section>
-    <p>At Soma & Soil, we’ve always believed that balance begins with something simple: a flame, a scent, a breath. Our candles, inspired by the five elements of Wuxing, were designed to do more than smell beautiful — they were meant to be daily anchors, inviting you to return to stillness.</p>
+                <h3>Introducing the Soma & Soil Ritual App</h3>
+                <p>Today, we’re excited to introduce a new layer to that experience: the Soma & Soil Ritual App. It is a sensory wellness companion that transforms your candle ritual into a moment of calm, reflection, and reconnection. Designed to work alongside our Wuxing Candle Collection, the app offers guided practices to bring your scent into focus, your breath into rhythm, and your attention gently inward.</p>
+                <p>Our vision for this app was never to create another wellness platform. We wanted to build a digital space that felt human, sensory, and calm and a space where you light a flame not just to smell, but to slow down and listen to yourself.</p>
+                <p>We hope the Soma & Soil Ritual App becomes your gentle companion. A soft pause. A spark of breath. A return to balance, one scent at a time.</p>
+            </section>
 
-    <h2>Introducing the Soma & Soil Ritual App</h2>
-    <p>Today, we’re excited to introduce a new layer to that experience: the Soma & Soil Ritual App. It is a sensory wellness companion that transforms your candle ritual into a moment of calm, reflection, and reconnection. Designed to work alongside our Wuxing Candle Collection, the app offers guided practices to bring your scent into focus, your breath into rhythm, and your attention gently inward.</p>
-    <p>Our vision for this app was never to create another wellness platform. We wanted to build a digital space that felt human, sensory, and calm and a space where you light a flame not just to smell, but to slow down and listen to yourself.</p>
-    <p>We hope the Soma & Soil Ritual App becomes your gentle companion. A soft pause. A spark of breath. A return to balance, one scent at a time.</p>
-    </section>
+                <!--sidebar-->
+            <aside class="blog-post-layout-sidebar">
+                <h3>Related Posts</h3>
+                <ul>
+                    <li><a href="#">Article 1</a></li>
+                    <li><a href="#">Article 2</a></li>
+                    <li><a href="#">Article 3</a></li>
+                    <li><a href="#">Article 4</a></li>
+                </ul>
+            </aside>
 
-    <!--CTA-->
-    <section>
-    <p>Available now on the App Store and Google Play.</p>
-    <a href="https://www.apple.com/ca/app-store/">Try it for free</a>
-    </section>
+            <!--CTA-->
+            <section class="blog-post-layout-cta">
+                <p>Available now on the App Store and Google Play.</p>
+                <a href="https://www.apple.com/ca/app-store/">Download Now</a>
+            </section>
+        </article>
+    </main>
 
     <!--footer-->
     <footer class="site-footer" aria-label="site footer">
             <p> &copy; 2025 Esme Chan</p>
     </footer>
+
+       <!--JS-->
+    <!--Header scrolling-->
+    <script>
+    window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.site-header');
+        if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+        } else {
+        navbar.classList.remove('scrolled');
+        }
+    });
+    </script>
+
 </body>
 </html>
