@@ -17,6 +17,9 @@
             <h1>Soma & Soil App</h1>
             <a href="index.html"><img src="images/soma-and-soil-logo-vertical-olivegreen.png" alt="soma and soil logo"></a>
         </div>
+        <button class="hamburger-menu" aria-label="Toggle navigation">
+            ☰
+        </button>
 
         <nav class="site-header_nav">
             <ul>
@@ -75,9 +78,9 @@
             <p> &copy; 2025 Esme Chan</p>
     </footer>
 
-       <!--JS-->
-    <!--Header scrolling-->
+    <!--JS-->
     <script>
+    //headervscrolling
     window.addEventListener('scroll', function () {
         const navbar = document.querySelector('.site-header');
         if (window.scrollY > 10) {
@@ -86,6 +89,13 @@
         navbar.classList.remove('scrolled');
         }
     });
+
+    // Toggle navigation menu visibility
+        document.querySelector('.hamburger-menu').addEventListener('click', () => {
+            const nav = document.querySelector('.site-header_nav');
+            nav.classList.toggle('active');
+        });
+    </script>
     </script>
 
 </body>
