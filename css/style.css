@@ -2,8 +2,8 @@
 :root{
     --green: rgb(0, 48, 32);
     --olivegreen: rgb(0, 92, 75);
-    --primaryfont: "circle", sans-serif;
-    --secondaryfont: "Rubik", sans-serif;
+    --primaryfont: "circle", "Avenir Next", sans-serif;
+    --secondaryfont: "Rubik", "Roboto", sans-serif;
 }
 
 body{
@@ -52,7 +52,9 @@ h2 {
     width: 100%;
     z-index: 10;
     background-color: rgba(255, 255, 255, 0); /*transparent bg*/
-        transition: background-color 0.6s ease, box-shadow 0.6s ease, color 0.6s ease;
+    transition: background-color 0.6s ease, box-shadow 0.6s ease, color 0.6s ease;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
 }
 
 /*hiding h1*/
@@ -60,7 +62,7 @@ h2 {
     position: absolute; /* Remove it from the document flow */
     width: 1px; /* Minimize its size */
     height: 1px; /* Minimize its size */
-    overflow: hidden; /* Prevent content overflow */
+    overflow: hidden;
     clip: rect(0, 0, 0, 0); /* Clip the element */
     white-space: nowrap; /* Prevent wrapping */
 }
@@ -73,7 +75,7 @@ h2 {
 }
 
 .site-header_logo img{
-    height: 1.1em; /* Adjust logo size */
+    height: 1.1em; 
     display: block;
 
 }
@@ -89,7 +91,7 @@ h2 {
     display: flex;
     justify-content: space-evenly;
     list-style: none;
-    gap: 3rem; /* Space between navigation items */
+    gap: 3rem;
     margin: 0;
     padding: 0;
 }
@@ -192,6 +194,14 @@ h2 {
     max-width: 35vw;
     margin: auto 4rem;
     transition: 0.3s;
+    animation: slideFadeIn 1s ease-in-out; /* animation */
+    animation-fill-mode:both ;
+}
+
+.hero-content > * {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
+    animation: slideFadeIn 1s ease-in-out forwards; /* animation */
 }
 
 .hero-content h2 {
@@ -201,7 +211,8 @@ h2 {
   font-weight: 600;
   margin-bottom: 1rem;
   color: var(--green);
-  letter-spacing: 0.1rem；
+  letter-spacing: 0.1rem;
+  animation-delay: 0.2s;
 }
 
 .hero-content p {
@@ -209,6 +220,7 @@ h2 {
   font-family: var(--secondaryfont);
   line-height: 1.6rem;
   margin: 1rem 0 2.5rem;
+  animation-delay: 0.6s;
 }
 
 /*Hero banner button -> download link*/
@@ -223,6 +235,7 @@ h2 {
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s;
+  animation-delay: 1s;
 }
 
 .hero-button:hover {
@@ -338,6 +351,7 @@ h2 {
     padding: 1rem;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
+
 /*card-text*/
 .feature_item h3 {
     font-size: 2rem;
@@ -386,16 +400,21 @@ h2 {
     min-height: 35vh;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .blog-card-image {
     width: 100%;
-    height: 250px;         
+    aspect-ratio: 16/9;         
     object-fit: cover;       
     border-radius: 10px 10px 0 0;
     margin-bottom: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    
 }
 
 .blog-card-content {
@@ -475,6 +494,7 @@ h2 {
         transform: rotate(-45deg) scale(1.02); /*hover animation-after*/
     }
 }
+
 
 /* FAQ Section */
 .faq {
@@ -721,7 +741,7 @@ h2 {
 }
 
 /*PHone*/
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
         /*Nav bar*/
         .site-header_nav {
             display: none; /* Hide navigation links before active */
@@ -1011,7 +1031,7 @@ h2 {
     }
 
     /*tablet*/
-    @media (min-width: 601px) and (max-width: 1024px) {
+    @media screen and (min-width: 601px) and (max-width: 1024px) {
 
     /* Navigation Bar */
     .site-header_nav {
@@ -1027,6 +1047,7 @@ h2 {
         z-index: 10;
         padding:1rem;
     }
+
     .site-header_nav ul {
         text-align: center;
         flex-direction: column;
@@ -1224,5 +1245,42 @@ h2 {
 
     .faq-ans {
         font-size: 1.2rem;
+    }
+}
+
+/*animation and keyframe*/
+.scroll-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.scroll-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-in:nth-child(1) { transition-delay: 0.4s; }
+.scroll-in:nth-child(2) { transition-delay: 0.6s; }
+.scroll-in:nth-child(3) { transition-delay: 0.8s; }
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start invisible */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+    }
+}
+
+@keyframes slideFadeIn {
+        0% {
+        opacity: 0; /* Start invisible */
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0);
     }
 }
