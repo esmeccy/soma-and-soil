@@ -39,7 +39,7 @@
         <article class="blog-post">
             <section class="blog-post-layout-top">
                 <div class="date-box">
-                <p>JULY 19, 2025</p>
+                <p class="scroll-fade-in">JULY 19, 2025</p>
                 </div>
                 <h2 class="blog-post-title">A New Way to Connect with Your Senses</h2>
             </section>
@@ -58,10 +58,10 @@
             <aside class="blog-post-layout-sidebar">
                 <h3>Related Posts</h3>
                 <ul>
-                    <li><a href="#">Article 1</a></li>
-                    <li><a href="#">Article 2</a></li>
-                    <li><a href="#">Article 3</a></li>
-                    <li><a href="#">Article 4</a></li>
+                    <li class="scroll-fade-in"><a href="#">Article 1</a></li>
+                    <li class="scroll-fade-in"><a href="#">Article 2</a></li>
+                    <li class="scroll-fade-in"><a href="#">Article 3</a></li>
+                    <li class="scroll-fade-in"><a href="#">Article 4</a></li>
                 </ul>
             </aside>
 
@@ -95,8 +95,22 @@
             const nav = document.querySelector('.site-header_nav');
             nav.classList.toggle('active');
         });
-    </script>
-    </script>
 
+        // Staggered scroll-fade-in animation
+        const fadeInElements = document.querySelectorAll('.scroll-fade-in');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const delay = [...fadeInElements].indexOf(entry.target) * 200; // 200ms stagger
+              setTimeout(() => {
+                entry.target.classList.add('visible');
+              }, delay);
+            }
+          });
+        }, {
+          threshold: 0.1
+        });
+        fadeInElements.forEach((el) => observer.observe(el));
+    </script>
 </body>
 </html>
