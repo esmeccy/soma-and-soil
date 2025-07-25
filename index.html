@@ -10,17 +10,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!--nav bar-->
     <header class="site-header">
+        <!--brand logo-->
         <div class="site-header_logo">
             <h1>Soma & Soil App</h1>
             <a href="index.html"><img src="images/soma-and-soil-logo-vertical-olivegreen.png" alt="soma and soil logo"></a>
         </div>
-        <button class="hamburger-menu" aria-label="Toggle navigation">
+        <button class="hamburger-menu" aria-label="open toggle navigation menu">
             ☰
         </button>
-
+        <!--pages link -->
         <nav class="site-header_nav">
             <ul>
                  <li class="nav-home"><a href="index.html"> Home</a></li>
@@ -29,9 +31,9 @@
                 <li class="nav-blog"><a href="Blog.html">Blog</a></li>
             </ul>
         </nav>
-
+        <!--nav button-->
         <div class="site-header-nav_cta">
-             <a class="cta-button" href="https://www.apple.com/ca/app-store/">Free Download</a>
+             <a class="cta-button" href="https://www.apple.com/ca/app-store/" aria-label="click to Download on app-store">Free Download</a>
         </div>
     </header>
 
@@ -39,46 +41,45 @@
         <!---hero-section-->
         <section class="hero"  aria-label="Hero section of Soma and Soil app">
             <div class="hero-content">
-            <h2>Turn Scent into a Ritual</h2>
-            <p>A sensory wellness app that turns your candle ritual 
-                into a moment of reflection, balance, and calm.</p>
-                    <a class="hero-button" href="https://www.apple.com/ca/app-store/">Try it for free</a>
+                <h2>Turn Scent into a Ritual</h2>
+                <p>A sensory wellness app that turns your candle ritual into a moment of reflection, balance, and calm.</p>
+                <a class="hero-button" href="https://www.apple.com/ca/app-store/" aria-label="click to Download on app-store">Try it for free</a>
             </div>
         </section>
 
         <!---about-->
         <section class="about" aria-label="Introduction of Soma and Soil app">
             <div class="about-title scroll-in">
-            <h2>About Soma & Soil</h2>
+                <h2>About Soma & Soil</h2>
             </div>
             <div class="about-content scroll-in">
-            <p>We helps you slow down, reconnect with your senses, and bring deeper meaning to your candle experience. Whether you’re starting your day, winding down, or simply creating a quiet moment, Soma & Soil helps reconnecting with your emotions.</p>
-              <a href="candles">Matching ritual with our candles</a>
+                <p>We helps you slow down, reconnect with your senses, and bring deeper meaning to your candle experience. Whether you’re starting your day, winding down, or simply creating a quiet moment, Soma & Soil helps reconnecting with your emotions.</p>
+                <a href="candles" aria-label="visit our candle product Collection">Matching ritual with our candles</a>
             </div>
         </section>
 
         <!--features-->
-        <section id="Features" class="feature" aria-label="Product's features">
+        <section id="Features" class="feature" aria-label="Key App features">
             <h2 class="feature_title scroll-in">Restoring your inner mind</h2>
             <div class="feature_list">
-            <div class="feature_item scroll-in">
-                <h3>01</h3>
-                <h4>Scan & Unclock</h4>
-                <p>Scan Soma & Soil candle to unlock the matching ritual align with its scent and energy.</p>
-            </div>
-
-            <div class="feature_item scroll-in">
-                <h3>02</h3>
-                <h4>Sensory Ritual</h4>
-                <p>Light the candle and follow our calming breathwork and soundscapes to restore presence and balance.</p>
-            </div>
-            
-            <div class="feature_item scroll-in">
-                <h3>03</h3>
-                <h4>Mood Check-Ins</h4>
-                <p>Pause and reflect daily. Track your emotional rhythm and let your mood guide your everyday ritual.</p>   
-            </div>
-
+                <!--feature-->
+                <div class="feature_item scroll-in">
+                    <h3>01</h3>
+                    <h4>Scan & Unclock</h4>
+                    <p>Scan Soma & Soil candle to unlock the matching ritual align with its scent and energy.</p>
+                </div>
+                <!--feature-->
+                <div class="feature_item scroll-in">
+                    <h3>02</h3>
+                    <h4>Sensory Ritual</h4>
+                    <p>Light the candle and follow our calming breathwork and soundscapes to restore presence and balance.</p>
+                </div>
+                <!--feature-->
+                <div class="feature_item scroll-in">
+                    <h3>03</h3>
+                    <h4>Mood Check-Ins</h4>
+                    <p>Pause and reflect daily. Track your emotional rhythm and let your mood guide your everyday ritual.</p>   
+                </div>
             </div>
         </section>
 
@@ -86,19 +87,19 @@
         <section class="blog-gallery">
             <h2 class="blog-gallery-title">Latest Posts</h2>
             <div class="blog-grid">
-                 <!--card-->
+                    <!--card-->
                 <div class="blog-card">
                     <a href="Blog.html"><img class="blog-card-image" src="images/blog-post-1.jpg" alt="young slim girl doing yoga outdoors green field" loading="lazy"></a>
-                    <div class="blog-card-content">
-                        <div class="blog-card-date-box"><p>JULY 19, 2025</p></div>
-                        <div class="blog-card-content-title">
-                        <a href="Blog.html"><h3>A New Way to Connect with Your Senses</h3></a>
+                        <div class="blog-card-content">
+                            <div class="blog-card-date-box"><p>JULY 19, 2025</p></div>
+                            <div class="blog-card-content-title">
+                            <a href="Blog.html"><h3>A New Way to Connect with Your Senses</h3></a>
                         </div>
                         <div class="blog-card-content-des">
-                        <p>At Soma & Soil, we’ve always believed that balance begins with something simple.</p>
+                            <p>At Soma & Soil, we’ve always believed that balance begins with something simple.</p>
                         </div>
                         <div>
-                        <a href="Blog.html" class="read-more-button">Read more</a>
+                            <a href="Blog.html" class="read-more-button" aria-label="">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -106,16 +107,16 @@
                 <!--card-->
                 <div class="blog-card">
                     <a href="Blog.html"><img class="blog-card-image" src="images/blog-post-2.jpg" alt="high angle woman doing ritual" loading="lazy"></a>
-                    <div class="blog-card-content">
-                        <div class="blog-card-date-box"><p>JULY 10, 2025</p></div>
-                        <div class="blog-card-content-title">
-                        <a href="Blog.html"><h3>How to Create Rituals with Intention</h3></a>
+                        <div class="blog-card-content">
+                            <div class="blog-card-date-box"><p>JULY 10, 2025</p></div>
+                            <div class="blog-card-content-title">
+                            <a href="Blog.html"><h3>How to Create Rituals with Intention</h3></a>
                         </div>
                         <div class="blog-card-content-des">
-                        <p>Discover how intentional rituals help anchor your mind and elevate your daily practices with Soma & Soil.</p>
+                            <p>Discover how intentional rituals help anchor your mind and elevate your daily practices with Soma & Soil.</p>
                         </div>
                         <div>
-                        <a href="Blog.html" class="read-more-button">Read more</a>
+                            <a href="Blog.html" class="read-more-button" aria-label="">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -123,16 +124,16 @@
                 <!--card-->
                 <div class="blog-card">
                     <a href="Blog.html"><img class="blog-card-image" src="images/blog-post-3.jpg" alt="a side view of a man and a woman are meditating in outdoors" loading="lazy"></a>
-                    <div class="blog-card-content">
-                        <div class="blog-card-date-box"><p>JULY 05, 2025</p></div>
-                        <div class="blog-card-content-title">
-                        <a href="Blog.html"><h3>Understanding the Wuxing Elements</h3></a>
+                        <div class="blog-card-content">
+                            <div class="blog-card-date-box"><p>JULY 05, 2025</p></div>
+                            <div class="blog-card-content-title">
+                            <a href="Blog.html"><h3>Understanding the Wuxing Elements</h3></a>
                         </div>
                         <div class="blog-card-content-des">
-                        <p>Explore the five elements that guide the philosophy behind Soma & Soil’s sensory offerings.</p>
+                            <p>Explore the five elements that guide the philosophy behind Soma & Soil’s sensory offerings.</p>
                         </div>
                         <div>
-                        <a href="Blog.html" class="read-more-button">Read more</a>
+                            <a href="Blog.html" class="read-more-button" aria-label="">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -141,15 +142,15 @@
                 <div class="blog-card">
                     <a href="Blog.html"><img class="blog-card-image" src="images/blog-post-4.jpg" alt="a beautiful woman picking up a flower by a lotus pond" loading="lazy"></a>
                         <div class="blog-card-content">
-                        <div class="blog-card-date-box"><p>JUNE 27, 2025</p></div>
-                        <div class="blog-card-content-title">
-                        <a href="Blog.html"><h3>Scent and Emotional Balance</h3></a>
+                            <div class="blog-card-date-box"><p>JUNE 27, 2025</p></div>
+                            <div class="blog-card-content-title">
+                            <a href="Blog.html"><h3>Scent and Emotional Balance</h3></a>
                         </div>
                         <div class="blog-card-content-des">
-                        <p>Learn how scent directly affects your mood and how to use it mindfully in everyday life.</p>
+                            <p>Learn how scent directly affects your mood and how to use it mindfully in everyday life.</p>
                         </div>
                         <div>
-                        <a href="Blog.html" class="read-more-button">Read more</a>
+                            <a href="Blog.html" class="read-more-button" aria-label="">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -158,15 +159,15 @@
                 <div class="blog-card">
                     <a href="Blog.html"><img class="blog-card-image" src="images/blog-post-5.jpg" alt="a woman is meditating on a grass mountain" loading="lazy"></a>
                         <div class="blog-card-content">
-                        <div class="blog-card-date-box"><p>JUNE 16, 2025</p></div>
-                        <div class="blog-card-content-title">
-                        <a href="Blog.html"><h3>The Power of Pause</h3></a>
+                            <div class="blog-card-date-box"><p>JUNE 16, 2025</p></div>
+                            <div class="blog-card-content-title">
+                            <a href="Blog.html"><h3>The Power of Pause</h3></a>
                         </div>
                         <div class="blog-card-content-des">
-                        <p>Why taking 3 minutes to light a candle and breathe may change how you move through your day.</p>
+                            <p>Why taking 3 minutes to light a candle and breathe may change how you move through your day.</p>
                         </div>
                         <div>
-                        <a href="Blog.html" class="read-more-button">Read more</a>
+                            <a href="Blog.html" class="read-more-button" aria-label="">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -174,7 +175,7 @@
                 <!--card-->
                 <div class="blog-card">
                     <a href="Blog.html"><img class="blog-card-image" src="images/blog-post-6.jpg" alt="a smiling woman is using her smart phone sitting home" loading="lazy"></a>
-                         <div class="blog-card-content">
+                            <div class="blog-card-content">
                         <div class="blog-card-date-box"><p>JUNE 02, 2025</p></div>
                         <div class="blog-card-content-title">
                         <a href="Blog.html"><h3>From Burnout to Balance</h3></a>
@@ -183,7 +184,7 @@
                         <p>One founder’s journey from stress to stillness—and how Soma & Soil came to be.</p>
                         </div>
                         <div>
-                        <a href="Blog.html" class="read-more-button">Read more</a>
+                        <a href="Blog.html" class="read-more-button"aria-label="">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -243,49 +244,49 @@
 
     <!--JS-->
     <script>
-    //header scrolling
-    window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('.site-header');
-        if (window.scrollY > 10) {
-        navbar.classList.add('scrolled');
-        } else {
-        navbar.classList.remove('scrolled');
-        }
-    });
-
-    //FAQ hidden ans
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        item.classList.toggle('active');
-      });
-    });
-
-    // Toggle navigation menu visibility
-    document.querySelector('.hamburger-menu').addEventListener('click', () => {
-        const nav = document.querySelector('.site-header_nav');
-        nav.classList.toggle('active');
-    });
- 
-    //scroll in animation
-    document.addEventListener("DOMContentLoaded", function () {
-        const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+        //header scrolling
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.site-header');
+            if (window.scrollY > 10) {
+            navbar.classList.add('scrolled');
+            } else {
+            navbar.classList.remove('scrolled');
             }
         });
-        }, {
-        threshold: 0.2
+
+        //FAQ hidden ans
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+            item.classList.toggle('active');
+            });
         });
 
-        document.querySelectorAll('.scroll-in').forEach(el => {
-        observer.observe(el);
+        // Toggle navigation menu visibility
+        document.querySelector('.hamburger-menu').addEventListener('click', () => {
+            const nav = document.querySelector('.site-header_nav');
+            nav.classList.toggle('active');
         });
-    });
+
+        //scroll in animation
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+                }
+            });
+            }, {
+            threshold: 0.2
+            });
+
+            document.querySelectorAll('.scroll-in').forEach(el => {
+            observer.observe(el);
+            });
+        });
     </script>
 
 </body>

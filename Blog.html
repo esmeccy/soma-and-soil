@@ -13,6 +13,7 @@
 <body>
     <!--nav bar-->
     <header class="site-header">
+        <!--brand logo-->
         <div class="site-header_logo">
             <h1>Soma & Soil App</h1>
             <a href="index.html"><img src="images/soma-and-soil-logo-vertical-olivegreen.png" alt="soma and soil logo"></a>
@@ -20,7 +21,7 @@
         <button class="hamburger-menu" aria-label="Toggle navigation">
             ☰
         </button>
-
+        <!--pages link -->
         <nav class="site-header_nav">
             <ul>
                 <li class="nav_active"><a href="index.html"> Home</a></li>
@@ -29,17 +30,19 @@
                 <li><a href="Blog.html">Blog</a></li>
             </ul>
         </nav>
-
+        <!--nav button-->
         <div class="site-header-nav_cta">
              <a class="cta-button" href="https://www.apple.com/ca/app-store/">Free Download</a>
         </div>
     </header>
+
+    <!--blog post content-->
     <main>
         <!--title section-->
         <article class="blog-post">
             <section class="blog-post-layout-top">
                 <div class="date-box">
-                <p class="scroll-fade-in">JULY 19, 2025</p>
+                    <p class="scroll-fade-in">JULY 19, 2025</p>
                 </div>
                 <h2 class="blog-post-title">A New Way to Connect with Your Senses</h2>
             </section>
@@ -80,21 +83,21 @@
 
     <!--JS-->
     <script>
-    //headervscrolling
-    window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('.site-header');
-        if (window.scrollY > 10) {
-        navbar.classList.add('scrolled');
-        } else {
-        navbar.classList.remove('scrolled');
-        }
-    });
-
-    // Toggle navigation menu visibility
-        document.querySelector('.hamburger-menu').addEventListener('click', () => {
-            const nav = document.querySelector('.site-header_nav');
-            nav.classList.toggle('active');
+        //headervscrolling
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.site-header');
+            if (window.scrollY > 10) {
+            navbar.classList.add('scrolled');
+            } else {
+            navbar.classList.remove('scrolled');
+            }
         });
+
+        // Toggle navigation menu visibility
+            document.querySelector('.hamburger-menu').addEventListener('click', () => {
+                const nav = document.querySelector('.site-header_nav');
+                nav.classList.toggle('active');
+            });
 
         // Staggered scroll-fade-in animation
         const fadeInElements = document.querySelectorAll('.scroll-fade-in');
@@ -113,4 +116,5 @@
         fadeInElements.forEach((el) => observer.observe(el));
     </script>
 </body>
+
 </html>
