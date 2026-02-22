@@ -150,10 +150,71 @@ h2 {
 
 /*footer*/
 .site-footer {
-    color: #272727;
-    text-align: center;
-    margin-bottom: 3em;
-    letter-spacing: 0.03rem;
+  background: #f7f8f7;
+  padding: 3rem 4rem;
+  border-top: 1px solid #eee;
+  color: #1e1e1e;
+}
+
+.footer-inner {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.footer-brand img {
+  height: 20px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.footer-tagline {
+  color: #47524c;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.site-footer h4 {
+  margin: 0 0 0.8rem;
+  font-family: var(--secondaryfont);
+  color: var(--green);
+  font-size: 1.1rem;
+}
+
+.footer-contact ul,
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li,
+.footer-links li {
+  margin: 0.35rem 0;
+  font-size: 0.98rem;
+}
+
+.site-footer a {
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0);
+  transition: border-color 0.2s ease;
+}
+
+.site-footer a:hover {
+  border-bottom-color: var(--olivegreen);
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  border-top: 1px solid #e7e7e7;
+  padding-top: 1rem;
+  text-align: center;
+  color: #4e4e4e;
+  font-size: 0.92rem;
 }
 
 /*HOME*/
@@ -735,6 +796,9 @@ h2 {
 
 /*PHone*/
 @media screen and (max-width: 600px) {
+  .site-footer { padding: 2.5rem 2rem; }
+  .footer-inner { flex-direction: column; gap: 1.5rem; }
+  .footer-brand, .footer-contact, .footer-links { text-align: left; }
         /*Nav bar*/
         .site-header_nav {
             display: none; /* Hide navigation links before active */
@@ -1020,6 +1084,8 @@ h2 {
 
     /*tablet*/
     @media screen and (min-width: 601px) and (max-width: 1024px) {
+    .site-footer { padding: 2.5rem 3rem; }
+    .footer-inner { gap: 2rem; }
 
     /* Navigation Bar */
     .site-header_nav {
