@@ -1,0 +1,426 @@
+/*Design tokens + everything that appears on every page:
+  the header/nav, the footer, buttons, and the shared interaction states.
+  Page-specific styles live in home.css and blog.css.
+  Load order: reset.css -> base.css -> home.css | blog.css */
+
+:root{
+    --green: rgb(0, 48, 32);
+    --olivegreen: rgb(0, 92, 75);
+    --primaryfont: "circle", "Avenir Next", sans-serif;
+    --secondaryfont: "Rubik", "Roboto", sans-serif;
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1); /*natural deceleration*/
+    /*drawn arrow instead of the '→' glyph, which changes shape with the font*/
+    --arrow-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15'/%3E%3Cpath d='m12.5 5.5 7 6.5-7 6.5'/%3E%3C/svg%3E");
+    --chevron-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 9 7 7 7-7'/%3E%3C/svg%3E");
+}
+
+/*shared "go somewhere" link arrow: About link, blog Read more, sidebar links.
+  Masked SVG tinted with background-color, so it inherits the accent colour.
+  Lives here because it spans both pages.*/
+.about-content a::after,
+.read-more-button::after,
+.blog-post-layout-sidebar a::after {
+    content: '';
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    margin-left: 0.5rem;
+    vertical-align: -0.08em;
+    flex: none; /*sidebar links are flex containers*/
+    background-color: var(--olivegreen);
+    -webkit-mask: var(--arrow-right) no-repeat center / contain;
+    mask: var(--arrow-right) no-repeat center / contain;
+    transition: transform 0.35s var(--ease-out-quart);
+}
+
+.about-content a:hover::after,
+.read-more-button:hover::after,
+.blog-post-layout-sidebar a:hover::after {
+    transform: rotate(-45deg);
+}
+
+/*same hover underline as the nav links: grows from the left on hover only.
+  ::after is taken by the arrow, so the underline lives on ::before.*/
+.about-content a::before,
+.read-more-button::before,
+.blog-post-layout-sidebar a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--olivegreen);
+    transition: width 0.3s ease;
+}
+
+.about-content a:hover::before,
+.read-more-button:hover::before,
+.blog-post-layout-sidebar a:hover::before {
+    width: 100%;
+}
+
+/* nav bar */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0); /*transparent bg*/
+    transition: background-color 0.6s ease, box-shadow 0.6s ease, color 0.6s ease;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/*hiding h1*/
+.site-header_logo h1 {
+    position: absolute; /* Remove it from the document flow */
+    width: 1px; /* Minimize its size */
+    height: 1px; /* Minimize its size */
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* Clip the element */
+    white-space: nowrap; /* Prevent wrapping */
+}
+/*logo*/
+.site-header_logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+}
+
+.site-header_logo img{
+    height: 1.1em;
+    display: block;
+}
+
+/*Links in the center*/
+.site-header_nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.site-header_nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header_nav a {
+    position: relative;
+    text-decoration: none;
+    color: #4e4e4e; /* Text color */
+    font-weight:500;
+    transition: color 0.3s ease;
+}
+
+.site-header_nav a:hover {
+    color: var(--olivegreen); /* Hover effect */
+    font-weight: 550;
+}
+
+.site-header_nav a::after { /*nav bar unerline*/
+    content: ''; /*underline*/
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0; /* Start with no width */
+    height: 2px;
+    background-color: var(--olivegreen);
+    transition: width 0.3s ease;
+}
+
+.site-header_nav a:hover::after {
+    width: 100%; /*expand the underline on hover*/
+}
+
+/*current section -> same treatment as hover, so the underline slides
+  between links as you scroll instead of introducing a new marker*/
+.site-header_nav li.nav-active > a {
+    color: var(--olivegreen);
+    font-weight: 550;
+}
+
+.site-header_nav li.nav-active > a::after {
+    width: 100%;
+}
+
+/* Hamburger menu styles */
+.hamburger-menu {
+    display: none; /* Hidden by default */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--green);
+}
+
+/*when user scrolls*/
+.site-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.8); /*transparent bg*/
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+/*nav button -> download link. Also reused by the blog "Back to Home" link.*/
+.site-header-nav_cta {
+    flex:1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.cta-button {
+  padding: 0.8rem 1.6rem;
+  background-color: rgb(255, 255, 255,0.1);
+  border: 1px solid var(--olivegreen);
+  color: var(--green);
+  border-radius: 2em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+  letter-spacing: 0.03rem;
+}
+
+.cta-button:hover {
+  background: var(--olivegreen);
+  opacity: 0.9;
+  color: #eee;
+  font-weight: 550;
+}
+
+/*body*/
+body{
+    font-family: var(--primaryfont);
+    line-height: 1.5;
+    color: #1e1e1e;
+    letter-spacing: 0.02rem;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  font-weight: 500;
+  font-family: var(--secondaryfont);
+  color: var(--green);
+}
+
+/*footer*/
+.site-footer {
+  background: #f7f8f7;
+  padding: 3rem 4rem;
+  border-top: 1px solid #eee;
+  color: #1e1e1e;
+}
+
+.footer-inner {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.footer-brand img {
+  height: 20px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.footer-tagline {
+  color: #47524c;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.site-footer h4 {
+  margin: 0 0 0.8rem;
+  font-family: var(--secondaryfont);
+  color: var(--green);
+  font-size: 1.1rem;
+}
+
+.footer-contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li {
+  margin: 0.35rem 0;
+  font-size: 0.98rem;
+}
+
+.site-footer a {
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0);
+  transition: border-color 0.2s ease;
+}
+
+.site-footer a:hover {
+  border-bottom-color: var(--olivegreen);
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  border-top: 1px solid #e7e7e7;
+  padding-top: 1rem;
+  text-align: center;
+  color: #4e4e4e;
+  font-size: 0.92rem;
+}
+
+/*press feedback -> every tappable thing acknowledges the tap*/
+.cta-button:active,
+.hero-button:active,
+.read-more-button:active,
+.about-content a:active,
+.blog-post-layout-cta a:active {
+    transform: scale(0.97);
+    transition-duration: 0.1s;
+}
+
+.faq-question:active .faq-toggle-icon {
+    transform: scale(0.9);
+}
+
+.faq-details[open] .faq-question:active .faq-toggle-icon {
+    transform: scaleY(-1) scale(0.9);
+}
+
+/*keyboard focus should be as visible as hover*/
+.cta-button:focus-visible,
+.hero-button:focus-visible,
+.read-more-button:focus-visible,
+.faq-question:focus-visible,
+.site-header_nav a:focus-visible {
+    outline: 2px solid var(--olivegreen);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+/*reveal on scroll. JS only adds .visible; the per-section stagger lives in
+  home.css / blog.css as transition-delay.*/
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start invisible */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/*Tablet + phone: the nav collapses into the hamburger menu.
+  One block, because the phone and tablet nav rules were byte-identical.*/
+@media screen and (max-width: 1024px) {
+    .site-header_nav {
+        display: flex; /*stays in the box model so it can animate; hidden via visibility*/
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        padding:1rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.2s var(--ease-out-quart),
+                    transform 0.2s var(--ease-out-quart),
+                    visibility 0.2s; /*exit is faster than entry*/
+    }
+
+    .site-header_nav ul {
+        text-align: center;
+        flex-direction: column;
+        gap: 3rem;
+        padding: 2rem;
+    }
+
+    .site-header_nav.active { /*showing the nav link inside the menu when active*/
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition-duration: 0.28s;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger menu */
+    }
+
+    .site-header_logo {
+        flex: 1; /*make logo expand and fill up the spaces*/
+    }
+
+    /* Hide CTA button, the hero/footer already offer the download */
+    .site-header-nav_cta {
+        display: none;
+    }
+
+    .site-footer { padding: 2.5rem 3rem; }
+    .footer-inner { gap: 2rem; }
+}
+
+/*Phone only*/
+@media screen and (max-width: 600px) {
+    .site-footer { padding: 2.5rem 2rem; }
+    .footer-inner { flex-direction: column; gap: 1.5rem; }
+    .footer-brand, .footer-contact { text-align: left; }
+}
+
+/*accessibility: honour the OS "reduce motion" setting.
+  Everything still reaches its final state, it just gets there instantly.*/
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /*these start hidden and are revealed by animation, so pin them visible.
+      !important is load-bearing: home.css and blog.css load after this file
+      and would otherwise win the cascade on source order alone.
+      scroll-triggered content must not depend on the observer firing at all:
+      a jump-scroll past a section would otherwise strand it at opacity 0*/
+    .hero h2,
+    .hero p,
+    .hero-button,
+    .site-header,
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /*a collapsed <details> must still open instantly rather than animating*/
+    .faq-details[open]::details-content {
+        block-size: auto;
+        opacity: 1;
+    }
+}

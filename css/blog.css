@@ -1,0 +1,164 @@
+/*Blog.html only: the article grid, sidebar, and its scroll animation.
+  Needs reset.css + base.css loaded first.
+  The "Back to Home" link reuses .cta-button from base.css.*/
+
+/* Grid Style*/
+.blog-post{
+    display: grid;
+    grid-template-areas:
+    "header sidebar"
+    "main sidebar"
+    "footer footer";
+    grid-template-columns: 3fr 1fr;
+    gap: 1.5rem;
+    margin: 15vh 4rem; /*match the nav/footer 4rem gutter*/
+    padding: 4rem 0;
+}
+
+.blog-post-layout-top {
+    grid-area: header;
+    text-align: left;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    color: #222;
+    line-height: 1.75;
+    margin-right: 4rem;
+}
+
+.blog-post-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9; /*same crop as the blog cards*/
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.blog-post-layout-body {
+    grid-area: main;
+    margin-right: 4rem;
+}
+
+.blog-post-layout-sidebar{
+    grid-area: sidebar;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    min-width: 25vw;
+}
+
+.blog-post-layout-cta{
+    grid-area: footer;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+/*Blog Post Style*/
+.blog-post-title {
+    font-size: 2rem;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    font-family: var(--secondaryfont);
+}
+
+.blog-post-layout-body p {
+    font-size: 1.2rem;
+    text-align: justify;
+    position: relative;
+    padding-bottom: 1.2rem;
+}
+
+/*side bar style. Arrow + hover underline come from base.css.*/
+.blog-post-layout-sidebar h3 {
+    font-size: 1.3rem;
+    padding: 2rem 1rem;
+}
+
+.blog-post-layout-sidebar ul{
+    list-style: none;
+    padding: 2rem 1rem;
+    margin: 0;
+}
+
+.blog-post-layout-sidebar li {
+    margin-bottom: 2rem;
+}
+
+.blog-post-layout-sidebar a {
+    position: relative; /*anchor for the hover underline*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--green);
+    padding-bottom: 2px;
+    width: 100%;
+    gap: 1rem;
+}
+
+/*sidebar links stagger in one after another (.reveal itself lives in base.css)*/
+.blog-post-layout-sidebar ul li:nth-of-type(1).reveal { transition-delay: 0.1s; }
+.blog-post-layout-sidebar ul li:nth-of-type(2).reveal { transition-delay: 0.3s; }
+.blog-post-layout-sidebar ul li:nth-of-type(3).reveal { transition-delay: 0.5s; }
+.blog-post-layout-sidebar ul li:nth-of-type(4).reveal { transition-delay: 0.7s; }
+
+/*Tablet + phone: the sidebar drops below the article.
+  Both breakpoints wanted the same layout, so it is written once.*/
+@media screen and (max-width: 1024px) {
+    .blog-post {
+        grid-template-areas:
+        "header"
+        "main"
+        "sidebar"
+        "footer";
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1rem;
+        margin: 3rem;
+    }
+
+    .blog-post-layout-top {
+        text-align: left;
+        margin: 5rem 0 0;
+        padding-bottom: 2rem;
+    }
+
+    .blog-post-layout-body {
+        margin: 0;
+        text-align: left;
+    }
+
+    .blog-post-layout-sidebar {
+        padding: 1rem;
+        margin: 0;
+        max-height: 55vh;
+    }
+
+    .blog-post-layout-sidebar h3 {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    .blog-post-layout-sidebar ul { padding: 1rem; }
+    .blog-post-layout-sidebar li { margin-bottom: 2rem; }
+}
+
+/*Phone only*/
+@media screen and (max-width: 600px) {
+    .blog-post { margin: 2rem; }
+    .blog-post-layout-top { margin-left: 1rem; }
+    .blog-post-layout-body { padding: 1rem 1rem 0; }
+    .blog-post-title { line-height: 3rem; }
+
+    .blog-post-layout-body p { margin: 0; padding: 0 0 1.5rem; text-align: left; }
+    .blog-post-layout-body h3 { margin: 0; padding: 0 0 1rem; text-align: left; }
+
+    .blog-post-layout-sidebar li { margin-bottom: 3rem; }
+
+    /*the arrow used to carry margin-left:16rem here, which forced these
+      max-content links ~368px wide and overflowed the page sideways*/
+    .blog-post-layout-sidebar a { width: auto; }
+}

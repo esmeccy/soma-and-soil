@@ -1,0 +1,487 @@
+/*index.html only: hero, about, features, blog gallery, FAQ.
+  Needs reset.css + base.css loaded first.*/
+
+/*hero section*/
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: url('../images/scenic-view-forest-against-sky.jpg')top center/ cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0;
+    margin-top: 0;
+    /*the background image is NOT animated: fading it in leaves the fixed nav
+      sitting on a white page for the first second. Only the content animates.*/
+}
+
+/*text*/
+.hero-content {
+    position: absolute;
+    top: 54vh;
+    text-align: left;
+    max-width: 35vw;
+    margin: auto 4rem;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    line-height: 3.2rem;
+    font-family: var(--secondaryfont);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--green);
+    letter-spacing: 0.1rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroContentFade 1.4s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    font-family: var(--secondaryfont);
+    line-height: 1.6rem;
+    margin: 1rem 0 2.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroContentFade 1.4s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+/*Hero banner button -> download link. Enters last.*/
+.hero-button {
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  background-color: rgb(255, 255, 255,0.2);
+  border: 1px solid rgb(255, 255, 255,0.4);
+  box-shadow: 0 2px 2px rgba(139, 139, 139, 0.1);
+  color: var(--green);
+  border-radius: 2em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroContentFade 1.4s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.hero-button:hover {
+  background-color: rgb(255, 255, 255,0.5);
+  font-weight: 650;
+}
+
+/*About Section*/
+.about{
+    margin: 8rem auto;
+    display: flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    text-align: left;
+}
+
+/*text*/
+.about-title{
+    width: 100%;
+    margin-left: 8rem;
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: var(--secondaryfont);
+    color: var(--green);
+}
+
+.about-content{
+    display: flex;
+    flex-direction: column;
+    margin-right: 8rem;
+}
+
+.about-content p{
+    font-size: 1.2rem;
+    color: #1e1e1e;
+}
+
+/*About Link -> Candles Products Page. Arrow + underline come from base.css.*/
+.about-content a {
+    position: relative; /*anchor for the hover underline*/
+    text-decoration: none;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--green);
+    width: max-content; /*keep the underline width as same as the content*/
+    padding-bottom: 2px; /*underline padding*/
+}
+
+/*Features*/
+.feature {
+    position: relative;
+    background: url('../images/calm-woman-meditating-nature.jpg')center/cover no-repeat;
+    height: 85vh;
+    width: 100%;
+}
+
+.feature_title {
+    position: absolute;
+    left: 4rem;
+    top: 15rem;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+/*feature-card*/
+.feature_list {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    color: #fff;
+    margin: 0 4rem;
+    bottom: 4rem;
+    gap: 1.2rem;
+}
+
+.feature_item {
+    width: 22vw;
+    min-height: 32vh;
+    backdrop-filter: blur(6px);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0px 20px 0px 20px;
+    padding: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/*card-text*/
+.feature_item h3 {
+    font-size: 2rem;
+    padding: .5rem;
+    font-weight: 600;
+}
+
+.feature_item h4 {
+    font-size: 1.4rem;
+    padding-bottom: 0.5rem;
+}
+
+.feature_item p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/*Blog Gallery*/
+.blog-gallery {
+    margin: 8rem 8rem 4rem;
+}
+
+.blog-gallery-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 5rem;
+}
+
+.blog-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(18rem, 1fr));
+    gap: 3rem;
+}
+
+.blog-card {
+    border-radius: 10px;
+    border: 1px solid #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    min-height: 35vh;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+.blog-card-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: transform 0.6s var(--ease-out-quart);
+}
+
+/*image settles back as the card lifts*/
+.blog-card:hover .blog-card-image {
+    transform: scale(1.04);
+}
+
+.blog-card-content {
+    padding: 1rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    flex: 1;
+}
+
+.blog-card-content a {
+    text-decoration: none;
+}
+
+.blog-card-content-title h3{
+    text-decoration: none;
+    color: var(--green);
+    margin-bottom: .5rem;
+}
+
+.blog-card-content-des {
+    display: -webkit-box; /* Enable the flex-like behavior for text */
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical; /* Set the box orientation to vertical */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflow */
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+/*arrow + hover underline come from base.css*/
+.read-more-button{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--green);
+    max-width: 100%; /*keep the underline width as same as the content*/
+    padding-bottom: 2px; /*underline padding*/
+    white-space: nowrap;
+}
+
+/* FAQ Section */
+.faq {
+    margin: 6rem 8rem 8rem;
+}
+
+.faq-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.faq-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1.2rem;
+}
+
+/*<summary> carries the click target, keyboard handling and expanded state*/
+.faq-question {
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    text-align: left;
+    list-style: none; /*drop the default disclosure triangle*/
+}
+
+.faq-question::-webkit-details-marker {
+    display: none; /*same, for Safari*/
+}
+
+.faq-question:hover {
+    color: var(--olivegreen);
+}
+
+/*toggle-icon style -> drawn chevron, same masked-SVG approach as the link arrow*/
+.faq-toggle-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: auto;
+    flex: none; /*.faq-question is a flex row*/
+    background-color: var(--green);
+    -webkit-mask: var(--chevron-down) no-repeat center / contain;
+    mask: var(--chevron-down) no-repeat center / contain;
+    transition: transform 0.3s var(--ease-out-quart), background-color 0.3s ease;
+    transform-origin: center center;
+}
+
+/*the browser hides this while the <details> is closed -> no visibility juggling*/
+.faq-ans {
+    font-size: 1.3rem;
+    color: #111111;
+    line-height: 1.6;
+    margin-top: 0.7rem;
+}
+
+.faq-ans > p {
+    margin: 0;
+}
+
+/*open state*/
+.faq-details[open] .faq-question {
+    color: var(--olivegreen);
+}
+
+.faq-details[open] .faq-toggle-icon {
+    transform: scaleY(-1);
+    background-color: var(--olivegreen); /*masked icon is tinted, not coloured text*/
+}
+
+/*animate the disclosure. block-size:auto only animates because reset.css sets
+  interpolate-size: allow-keywords. Browsers without ::details-content (Firefox
+  today) simply ignore this block and open instantly -- content still works.*/
+.faq-details::details-content {
+    block-size: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: block-size 0.35s var(--ease-out-quart),
+                opacity 0.35s var(--ease-out-quart),
+                content-visibility 0.35s allow-discrete;
+}
+
+.faq-details[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+}
+
+/*stagger by source order (.reveal itself lives in base.css)*/
+.reveal:nth-child(1) { transition-delay: 0.4s; }
+.reveal:nth-child(2) { transition-delay: 0.6s; }
+.reveal:nth-child(3) { transition-delay: 0.8s; }
+
+/*blog cards get a tighter stagger -> 6 cards at 0.2s apart would drag*/
+.blog-grid .reveal:nth-child(1) { transition-delay: 0.05s; }
+.blog-grid .reveal:nth-child(2) { transition-delay: 0.13s; }
+.blog-grid .reveal:nth-child(3) { transition-delay: 0.21s; }
+.blog-grid .reveal:nth-child(4) { transition-delay: 0.29s; }
+.blog-grid .reveal:nth-child(5) { transition-delay: 0.37s; }
+.blog-grid .reveal:nth-child(6) { transition-delay: 0.45s; }
+
+@keyframes heroContentFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*Tablet + phone: shared. Anything whose value is the same at both
+  breakpoints lives here once; the two blocks below hold only the differences.*/
+@media screen and (max-width: 1024px) {
+    /*hero -> text sits over the photo, so it flips to white and centres*/
+    .hero-content { text-align: center; }
+    .hero-content h2,
+    .hero-content p,
+    .hero-button { color: #fff; }
+    .hero-content p { font-size: 1rem; }
+
+    /*about -> single column*/
+    .about { flex-direction: column; }
+    .about-title { text-align: center; margin-left: 0; }
+    .about-content { align-items: center; text-align: center; margin: 0; }
+    .about-content p,
+    .about-content a { font-size: 1rem; }
+
+    /*features -> title moves above the stacked cards, onto the light sky*/
+    .feature { text-align: center; height: 100vh; }
+    .feature_title {
+        width: 100%;
+        text-align: center;
+        top: 0;
+        left: 0;
+        color: var(--green);
+        font-size: 2rem;
+    }
+    .feature_list { flex-direction: column; }
+    .feature_item { width: 100%; }
+
+    /*blog gallery + FAQ*/
+    .blog-gallery-title { font-size: 2rem; }
+    .blog-grid { gap: 2rem; }
+    .read-more-button { font-size: 0.9rem; }
+    .faq-title { font-size: 2rem; margin-bottom: 3rem; }
+}
+
+/*Tablet only*/
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .hero-content { top: 50%; left: 15%; max-width: 50vw; }
+
+    .about { margin: 6rem; }
+    .about-title { padding-bottom: 1rem; }
+
+    .feature_title { margin: 5rem auto; padding: 0 2rem; }
+    .feature_list {
+        justify-content: center;
+        align-items: center;
+        margin: 0 6rem;
+        gap: 1rem;
+        bottom: 3rem;
+    }
+    .feature_item { min-height: 22vh; }
+    .feature_item h3 { padding: .1rem; }
+    .feature_item h4 { padding-bottom: .1rem; }
+    .feature_item p { padding-bottom: .3rem; }
+
+    .blog-gallery { margin: 5rem 6rem; }
+    .blog-gallery-title { margin-bottom: 3rem; }
+    .blog-grid { grid-template-columns: repeat(auto-fit,minmax(20rem, 1fr)); }
+    .blog-card-content { padding: 1rem; }
+    .blog-card-content-des { font-size: 0.9rem; }
+
+    .faq { margin: 4rem 6rem; }
+    .faq-question { font-size: 1.3rem; }
+    .faq-toggle-icon { width: 1.35rem; height: 1.35rem; }
+    .faq-ans { font-size: 1.2rem; }
+}
+
+/*Phone only*/
+@media screen and (max-width: 600px) {
+    .hero-content { max-width: 100vw; }
+
+    .about { margin: 4rem; }
+    .about-content { padding: 1rem; }
+
+    .feature_title { margin: 4rem auto; padding: 0 6rem; }
+    .feature_list { gap: 1.5rem; bottom: 4rem; }
+    .feature_item { min-height: 15vh; }
+    .feature_item h3 { font-size: 1.5rem; padding: .2rem; }
+    .feature_item h4 { font-size: 1.2rem; padding-bottom: .2rem; }
+    .feature_item p { font-size: .8rem; padding-bottom: .5rem; }
+
+    .blog-gallery { margin: 4rem 3rem; }
+    .blog-gallery-title { margin-bottom: 2rem; }
+    .blog-grid { grid-template-columns: 1fr; } /* Stack blog cards in a single column */
+    .blog-card-content-des { font-size: .8rem; }
+
+    .faq { margin: 4rem; }
+    .faq-question { font-size: 1rem; }
+    .faq-toggle-icon { width: 1.25rem; height: 1.25rem; }
+    .faq-ans { font-size: .9rem; }
+}
