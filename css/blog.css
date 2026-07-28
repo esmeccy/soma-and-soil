@@ -1,16 +1,14 @@
 /*Blog.html only: the article grid, sidebar, and its scroll animation.
-  Needs reset.css + base.css loaded first.
-  The "Back to Home" link reuses .cta-button from base.css.*/
+  Needs reset.css + base.css loaded first.*/
 
 /* Grid Style*/
 .blog-post{
     display: grid;
     grid-template-areas:
     "header sidebar"
-    "main sidebar"
-    "footer footer";
+    "main sidebar";
     grid-template-columns: 3fr 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
     margin: 15vh 4rem; /*match the nav/footer 4rem gutter*/
     padding: 4rem 0;
 }
@@ -42,47 +40,72 @@
 
 .blog-post-layout-sidebar{
     grid-area: sidebar;
+    align-self: start; /*hug the content; also required for sticky to work in a grid cell*/
+    position: sticky;
+    top: 8rem; /*clears the fixed .site-header*/
     background-color: #f9f9f9;
     padding: 1.5rem;
     border-radius: 8px;
-    min-width: 25vw;
+    min-width: 20vw;
 }
 
-.blog-post-layout-cta{
-    grid-area: footer;
-    text-align: center;
-    margin: 3rem 0;
+.blog-post-back {
+    display: inline-flex;
+    align-items: center;
+    position: relative; /*anchors the shared hover underline in base.css*/
+    width: max-content; /*flex column would otherwise stretch the link full width*/
+    margin-bottom: 1rem;
+    color: var(--olivegreen);
+    font-size: 1rem;
+    text-decoration: none;
 }
+
+/*same masked-SVG treatment as the shared link arrow, chevron and leading instead*/
+.blog-post-back::after {
+    content: '';
+    order: -1; /*::before is the underline, so the chevron rides ::after and moves left*/
+    width: 0.9em;
+    height: 0.9em;
+    margin-right: 0.35rem;
+    background-color: var(--olivegreen);
+    -webkit-mask: var(--chevron-left) no-repeat center / contain;
+    mask: var(--chevron-left) no-repeat center / contain;
+    transition: transform 0.35s var(--ease-out-quart);
+}
+
+.blog-post-back:hover::after { transform: translateX(-0.2em); }
 
 /*Blog Post Style*/
 .blog-post-title {
     font-size: 2rem;
-    letter-spacing: .1rem;
     font-weight: 600;
     font-family: var(--secondaryfont);
 }
 
 .blog-post-layout-body p {
     font-size: 1.2rem;
-    text-align: justify;
     position: relative;
     padding-bottom: 1.2rem;
 }
 
 /*side bar style. Arrow + hover underline come from base.css.*/
 .blog-post-layout-sidebar h3 {
-    font-size: 1.3rem;
-    padding: 2rem 1rem;
+    font-size: 1.2rem;
+    padding: 1rem;
 }
 
 .blog-post-layout-sidebar ul{
     list-style: none;
-    padding: 2rem 1rem;
+    padding: 0 1rem 1rem;
     margin: 0;
 }
 
 .blog-post-layout-sidebar li {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.blog-post-layout-sidebar li:last-child {
+    margin-bottom: 0;
 }
 
 .blog-post-layout-sidebar a {
@@ -91,7 +114,7 @@
     justify-content: space-between;
     align-items: center;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--green);
     padding-bottom: 2px;
@@ -112,8 +135,7 @@
         grid-template-areas:
         "header"
         "main"
-        "sidebar"
-        "footer";
+        "sidebar";
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 2rem 1rem;

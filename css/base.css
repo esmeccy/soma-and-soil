@@ -12,6 +12,7 @@
     /*drawn arrow instead of the '→' glyph, which changes shape with the font*/
     --arrow-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15'/%3E%3Cpath d='m12.5 5.5 7 6.5-7 6.5'/%3E%3C/svg%3E");
     --chevron-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 9 7 7 7-7'/%3E%3C/svg%3E");
+    --chevron-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15 5-7 7 7 7'/%3E%3C/svg%3E");
 }
 
 /*shared "go somewhere" link arrow: About link, blog Read more, sidebar links.
@@ -43,6 +44,7 @@
   ::after is taken by the arrow, so the underline lives on ::before.*/
 .about-content a::before,
 .read-more-button::before,
+.blog-post-back::before,
 .blog-post-layout-sidebar a::before {
     content: '';
     position: absolute;
@@ -56,6 +58,7 @@
 
 .about-content a:hover::before,
 .read-more-button:hover::before,
+.blog-post-back:hover::before,
 .blog-post-layout-sidebar a:hover::before {
     width: 100%;
 }
@@ -142,15 +145,11 @@
     width: 100%; /*expand the underline on hover*/
 }
 
-/*current section -> same treatment as hover, so the underline slides
-  between links as you scroll instead of introducing a new marker*/
+/*current section -> color + weight only, no underline. The underline stays
+  reserved for hover so it reads as an interaction, not a marker*/
 .site-header_nav li.nav-active > a {
     color: var(--olivegreen);
     font-weight: 550;
-}
-
-.site-header_nav li.nav-active > a::after {
-    width: 100%;
 }
 
 /* Hamburger menu styles */
@@ -182,7 +181,8 @@
   padding: 0.8rem 1.6rem;
   background-color: rgb(255, 255, 255,0.1);
   border: 1px solid var(--olivegreen);
-  color: var(--green);
+background: var(--olivegreen);  
+  color: #fff;
   border-radius: 2em;
   font-weight: 500;
   text-decoration: none;
@@ -191,10 +191,9 @@
 }
 
 .cta-button:hover {
-  background: var(--olivegreen);
+  background: rgb(0, 63, 52);
   opacity: 0.9;
-  color: #eee;
-  font-weight: 550;
+  color: #fff;
 }
 
 /*body*/
